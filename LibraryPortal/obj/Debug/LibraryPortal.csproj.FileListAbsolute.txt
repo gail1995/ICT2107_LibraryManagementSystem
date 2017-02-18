@@ -80,3 +80,5 @@ c:\users\bloow\onedrive\documents\visual studio 2015\Projects\LibraryPortal\bin\
 c:\users\bloow\onedrive\documents\visual studio 2015\Projects\LibraryPortal\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 c:\users\bloow\onedrive\documents\visual studio 2015\Projects\LibraryPortal\obj\Debug\LibraryPortal.dll
 c:\users\bloow\onedrive\documents\visual studio 2015\Projects\LibraryPortal\obj\Debug\LibraryPortal.pdb
+C:\Users\bloow\OneDrive\Documents\Visual Studio 2015\Projects\LibraryPortal\obj\Debug\LibraryPortal.Migrations.InitialCreate.resources
+C:\Users\bloow\OneDrive\Documents\Visual Studio 2015\Projects\LibraryPortal\obj\Debug\LibraryPortal.csproj.GenerateResource.Cache
