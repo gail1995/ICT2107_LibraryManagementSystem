@@ -9,10 +9,10 @@ namespace LibraryPortal.DAL
     interface IDataGateway<T> where T:class
     {
         IEnumerable<T> SelectAll();
-        T SelectById(String id);
+        T SelectById(int id);
         void Insert(T obj);
-        void Update(T obj, String id);
-        T Delete(String id);
+        void Update(T obj, int id);
+        T Delete(int id);
         void Save();
     }
 }

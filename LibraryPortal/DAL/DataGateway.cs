@@ -16,7 +16,7 @@ namespace LibraryPortal.DAL
             this.data = db.Set<T>();
         }
 
-        public T Delete(string id)
+        public T Delete(int id)
         {
             T obj = data.Find(id);
             data.Remove(obj);
@@ -40,13 +40,13 @@ namespace LibraryPortal.DAL
             return data;
         }
 
-        public T SelectById(string id)
+        public T SelectById(int id)
         {
             T obj = data.Find(id);
             return obj;
         }
 
-        public void Update(T obj, string id)
+        public void Update(T obj, int id)
         {
             T obj2 = data.Find(id);
             db.Entry(obj2).CurrentValues.SetValues(obj);

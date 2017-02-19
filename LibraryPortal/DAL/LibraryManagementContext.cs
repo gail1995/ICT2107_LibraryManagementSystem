@@ -14,5 +14,7 @@ namespace LibraryPortal.DAL
 
         }
         public DbSet<Book> Books { get; set; }
+
+        public System.Data.Entity.DbSet<LibraryPortal.Models.Transaction> Transactions { get; set; }
     }
 }

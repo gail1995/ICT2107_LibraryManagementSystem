@@ -196,6 +196,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibrarianBookController.cs" />
+    <Compile Include="Controllers\MemberBookController.cs" />
     <Compile Include="DAL\DataGateway.cs" />
     <Compile Include="DAL\IDataGateway.cs" />
     <Compile Include="DAL\LibraryManagementContext.cs" />
@@ -259,6 +260,11 @@
     <Content Include="Views\LibrarianBook\Details.cshtml" />
     <Content Include="Views\LibrarianBook\Edit.cshtml" />
     <Content Include="Views\LibrarianBook\Index.cshtml" />
+    <Content Include="Views\MemberBook\Create.cshtml" />
+    <Content Include="Views\MemberBook\Delete.cshtml" />
+    <Content Include="Views\MemberBook\Details.cshtml" />
+    <Content Include="Views\MemberBook\Edit.cshtml" />
+    <Content Include="Views\MemberBook\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -10,7 +10,9 @@ namespace LibraryPortal.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true; 
             ContextKey = "LibraryPortal.DAL.LibraryManagementContext";
+            
         }
 
         protected override void Seed(LibraryPortal.DAL.LibraryManagementContext context)

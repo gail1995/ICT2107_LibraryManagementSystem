@@ -14,21 +14,18 @@ namespace LibraryPortal.Controllers
     public class LibrarianBookController : Controller
     {
         private LibraryManagementContext db = new LibraryManagementContext();
-
+        private DataGateway<Book> bookDataGateway = new DataGateway<Book>();
         // GET: LibrarianBook
         public ActionResult Index()
         {
-            return View(db.Books.ToList());
+            return View(bookDataGateway.SelectAll());
         }
 
         // GET: LibrarianBook/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Book book = db.Books.Find(id);
+
+            Book book = bookDataGateway.SelectById(id);
             if (book == null)
             {
                 return HttpNotFound();
@@ -51,7 +48,7 @@ namespace LibraryPortal.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Books.Add(book);
+                bookDataGateway.Insert(book);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -60,13 +57,10 @@ namespace LibraryPortal.Controllers
         }
 
         // GET: LibrarianBook/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Book book = db.Books.Find(id);
+
+            Book book = bookDataGateway.SelectById(id);
             if (book == null)
             {
                 return HttpNotFound();
@@ -79,25 +73,28 @@ namespace LibraryPortal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "bookID,transactionID,bookTitle,author,loanStatus")] Book book)
+        public ActionResult Edit(int id, FormCollection collection)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(book).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                    Book book = bookDataGateway.SelectById(id);
+                    bookDataGateway.Update(book, id);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
             }
-            return View(book);
+            catch(Exception ex)
+            {
+                return View(bookDataGateway.SelectById(id));
+            }
+          
+            
         }
 
         // GET: LibrarianBook/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Book book = db.Books.Find(id);
+
+            Book book = bookDataGateway.SelectById(id);
             if (book == null)
             {
                 return HttpNotFound();
@@ -108,10 +105,10 @@ namespace LibraryPortal.Controllers
         // POST: LibrarianBook/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Book book = db.Books.Find(id);
-            db.Books.Remove(book);
+
+            bookDataGateway.Delete(id);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
