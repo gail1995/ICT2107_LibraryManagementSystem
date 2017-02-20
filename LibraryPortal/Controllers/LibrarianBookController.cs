@@ -18,6 +18,7 @@ namespace LibraryPortal.Controllers
         // GET: LibrarianBook
         public ActionResult Index()
         {
+
             return View(bookDataGateway.SelectAll());
         }
 

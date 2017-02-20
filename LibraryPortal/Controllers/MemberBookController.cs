@@ -15,6 +15,7 @@ namespace LibraryPortal.Controllers
     {
         private LibraryManagementContext db = new LibraryManagementContext();
         private DataGateway<Transaction> transDataGateway = new DataGateway<Transaction>();
+        private DataGateway<Book> bookDatagatway = new DataGateway<Book>();
 
         // GET: MemberBook
         public ActionResult Index()
